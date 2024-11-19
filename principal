@@ -1,0 +1,65 @@
+package parcial3;
+
+import java.util.Scanner;
+
+
+public class principal {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        gestionestudiante gestionestudiantes = new gestionestudiante(5);
+          while( true){
+              System.out.println("Edupilo S.A.");
+              System.out.println(" Menu Gestion Estudiantes");
+              System.out.println("1 Agregar estudiante:");
+              System.out.println("2 mostrar todos los estudiantes:");
+              System.out.println("3 Buscar estudianyes por nombre:");
+              System.out.println("4 Calcular promedio");
+              System.out.println("Salir.");
+              System.out.println("Seleccione una opcion");
+              
+              
+              int opcion = sc.nextInt();
+              switch (opcion){
+                  case 1:
+                      System.out.println("ingresse nombre");
+                      String nombre=sc.nextLine();
+                      System.out.println("ingree edad");
+                      int edad=sc.nextInt();
+                      System.out.println("ingrese promedio");
+                      double promedio=sc.nextDouble();
+                      gestionestudiantes.agregarestudiante("nombre",0 , 0);
+                      break;
+                  case 2:
+                      gestionestudiantes.motrarestudante(opcion);
+                      break;
+                  case 3:
+                      System.out.println("ingrese nombre");
+                      String nombrebuscar=sc.nextLine();
+                      gestionestudiantes.buscarpornombre(nombrebuscar);
+                      break;
+                  case 4:
+                      gestionestudiantes.calcularpromedio();
+                      break;
+                  case 5:
+                      System.out.println("salir");
+                      return;
+                  default:
+                      System.out.println("intente denuevo");
+              }
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+            
+          }
+    }
+    
+}
