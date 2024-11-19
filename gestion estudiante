@@ -1,0 +1,63 @@
+package parcial3;
+
+import java.util.Scanner;
+
+
+public class gestionestudiante {
+    Scanner sc =new Scanner(System.in);
+    private estudiante[]estudiantes;
+    private int cantidadactual;
+    private int capacidadmaxima;
+
+    public gestionestudiante( int capacidadmaxima) {
+        this.estudiantes =new estudiante[capacidadmaxima];
+        this.cantidadactual = 0;
+        this.capacidadmaxima = capacidadmaxima;
+    }
+public void agregarestudiante(String nombre,int edad,double promedio){
+    if(cantidadactual<capacidadmaxima){
+        estudiantes[capacidadmaxima++]= new estudiante(nombre, edad, promedio);
+                
+    }else{
+        System.out.println("no se puede agregar");
+    }
+}
+  public void motrarestudante(int pocision){
+      if(cantidadactual==0){
+          System.out.println("no hay estudiante");
+      }else{
+          for(int i=0;i<cantidadactual;i++){
+              System.out.println(estudiantes[i]);
+          }
+      }
+    
+  }   
+    public void buscarpornombre(String nombre){
+        boolean encotrado=false;
+        for(int i=0;i<cantidadactual;i++){
+            if(estudiantes[i].getNombre().equalsIgnoreCase(nombre)){
+                System.out.println(estudiantes[i]);
+                encotrado=true;
+                break;
+            }
+        }
+        if(!encotrado){
+            System.out.println("no hay estudiante");
+        }
+    }
+  public void calcularpromedio(){
+      if(cantidadactual==0){
+          System.out.println("no hay estudiante");
+          return;
+      }
+      double sumapromedios=0;
+      for(int i=0;i<cantidadactual;i++){
+          sumapromedios +=estudiantes[i].getPromedio();
+      }
+      double promediogeneral=sumapromedios/cantidadactual;
+      System.out.println("el promedio es"+promediogeneral);
+  }
+    
+}
+    
+          
